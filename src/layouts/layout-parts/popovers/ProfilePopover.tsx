@@ -10,9 +10,6 @@ import Typography from '@mui/material/Typography'
 import PopoverLayout from './_PopoverLayout'
 import FlexBox from '@/components/flexbox/FlexBox'
 import AvatarLoading from '@/components/avatar-loading'
-// CUSTOM DEFINED HOOK
-import { useTheAuth } from '@/hooks/useTheAuth'
-import { useUser } from '@clerk/clerk-react'
 
 // STYLED COMPONENTS
 const Text = styled('p')(({ theme }) => ({
@@ -30,13 +27,12 @@ const AVATAR_STYLES = {
 
 export default memo(function ProfilePopover() {
   const navigate = useNavigate()
-  const { logout } = useTheAuth()
-  const { user } = useUser()
+  const user = { name: 'User', email: 'user@example.com' }
 
   const SELECT_BUTTON = (
     <AvatarLoading
-      alt="Aaron Cooper"
-      src={user?.imageUrl ?? '/static/user/user-11.png'}
+      alt="User"
+      src="/static/user/user-11.png"
       percentage={60}
       sx={AVATAR_STYLES}
     />
@@ -44,19 +40,15 @@ export default memo(function ProfilePopover() {
 
   const TITLE = (
     <FlexBox alignItems="center" gap={1} p={2} pt={1}>
-      <Avatar
-        src={user?.imageUrl ?? '/static/user/user-11.png'}
-        alt="Aaron Cooper"
-        sx={AVATAR_STYLES}
-      />
+      <Avatar src="/static/user/user-11.png" alt="User" sx={AVATAR_STYLES} />
 
       <div>
         <Typography variant="body2" fontWeight={500}>
-          {user?.fullName}
+          {user.name}
         </Typography>
 
         <Typography variant="body2" color="text.secondary" fontSize={12}>
-          {user?.emailAddresses?.[0]?.emailAddress}
+          {user.email}
         </Typography>
       </div>
     </FlexBox>
@@ -79,12 +71,10 @@ export default memo(function ProfilePopover() {
           <Text onClick={handleMenuItem('/dashboard/profile')}>
             Manage Team
           </Text>
-          <Divider sx={{ my: 1 }} />
-          <Text onClick={logout}>Sign Out</Text>
         </Box>
       )
     },
-    [navigate, logout]
+    [navigate]
   )
 
   return (
