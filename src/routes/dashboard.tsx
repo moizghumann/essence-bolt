@@ -6,23 +6,11 @@ import { AuthGuard } from '@/components/auth'
 import { LoadingProgress } from '@/components/loader'
 
 // ALL DASHBOARD PAGES
-const CRM = lazy(() => import('@/pages/dashboard/crm'))
-const CRMV2 = lazy(() => import('@/pages/dashboard/crm-2'))
-
-const Sales = lazy(() => import('@/pages/dashboard/sales'))
-const SalesV2 = lazy(() => import('@/pages/dashboard/sales-2'))
-
-const Finance = lazy(() => import('@/pages/dashboard/finance'))
-const FinanceV2 = lazy(() => import('@/pages/dashboard/finance-2'))
 
 const Analytics = lazy(() => import('@/pages/dashboard/analytics'))
 const AnalyticsV2 = lazy(() => import('@/pages/dashboard/analytics-2'))
 
-const Ecommerce = lazy(() => import('@/pages/dashboard/ecommerce'))
 const Logistics = lazy(() => import('@/pages/dashboard/logistics'))
-const Marketing = lazy(() => import('@/pages/dashboard/marketing'))
-const LMS = lazy(() => import('@/pages/dashboard/learning-management'))
-const JobManagement = lazy(() => import('@/pages/dashboard/job-management'))
 
 // USER LIST PAGES
 const AddNewUser = lazy(() => import('@/pages/users/add-new-user'))
@@ -104,18 +92,8 @@ export const DashboardRoutes = [
     element: <ActiveLayout />,
     children: [
       { index: true, element: <Analytics /> },
-      { path: 'crm', element: <CRM /> },
-      { path: 'crm-2', element: <CRMV2 /> },
-      { path: 'sales', element: <Sales /> },
-      { path: 'sales-2', element: <SalesV2 /> },
-      { path: 'finance', element: <Finance /> },
-      { path: 'finance-2', element: <FinanceV2 /> },
-      { path: 'ecommerce', element: <Ecommerce /> },
       { path: 'logistics', element: <Logistics /> },
-      { path: 'marketing', element: <Marketing /> },
       { path: 'analytics-2', element: <AnalyticsV2 /> },
-      { path: 'learning-management', element: <LMS /> },
-      { path: 'job-management', element: <JobManagement /> },
 
       { path: 'add-user', element: <AddNewUser /> },
       { path: 'user-list', element: <UserListView /> },
