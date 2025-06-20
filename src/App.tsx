@@ -17,8 +17,12 @@ import useSettings from '@/hooks/useSettings'
 import './i18n'
 
 // CLERK
+import { ClerkProvider } from '@clerk/clerk-react'
+import SupabaseProvider from '@/providers/supabase'
+
 import { queryClient } from '@/providers/queryClient'
 import { QueryClientProvider } from '@tanstack/react-query'
+
 
 
 export default function App() {
@@ -34,12 +38,16 @@ export default function App() {
   return (
     <LocalizationProvider dateAdapter={AdapterDateFns}>
       <ThemeProvider theme={theme}>
-        <QueryClientProvider client={queryClient}>
-          <RTL>
-            <CssBaseline />
-            <RouterProvider router={router} />
-          </RTL>
-        </QueryClientProvider>
+        <ClerkProvider publishableKey={PUBLISHABLE_KEY}>
+          <SupabaseProvider>
+            <QueryClientProvider client={queryClient}>
+              <RTL>
+                <CssBaseline />
+                <RouterProvider router={router} />
+              </RTL>
+            </QueryClientProvider>
+          </SupabaseProvider>
+        </ClerkProvider>
       </ThemeProvider>
     </LocalizationProvider>
   )
