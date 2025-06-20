@@ -161,7 +161,7 @@ export default function TotalUsers() {
   })
 
   return (
-    <Card className="p-3 h-full">
+    <Card className="p-3 h-full" sx={{ backgroundColor: '#171717' }}>
       <TopStats>
         <Typography variant="body2" color="text.secondary">
           {t('Total Users')}

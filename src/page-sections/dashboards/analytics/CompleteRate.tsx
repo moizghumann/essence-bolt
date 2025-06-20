@@ -45,7 +45,7 @@ export default function CompleteRate() {
   })
 
   return (
-    <Card>
+    <Card sx={{ backgroundColor: '#171717' }}>
       <Box p={3} pb={0} position="relative" zIndex={2}>
         <Title
           title={`${data[0]?.rate}%`}

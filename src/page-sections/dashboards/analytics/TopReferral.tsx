@@ -93,7 +93,7 @@ export default function TopReferral() {
   ]
 
   return (
-    <Card sx={{ padding: 3, pb: 0 }}>
+    <Card sx={{ padding: 3, pb: 0, backgroundColor: '#171717' }}>
       <div>
         <Title
           title={1352}

@@ -16,7 +16,7 @@ import { useTopPerformingSites } from '@/hooks/useTopPermormingSites'
 export default function TopPerforming() {
   const { data: TOP_PERFORMING = [] } = useTopPerformingSites()
   return (
-    <Card sx={{ padding: 3, pb: 1 }}>
+    <Card sx={{ padding: 3, pb: 1, backgroundColor: '#171717' }}>
       <Box mb={3}>
         <Typography variant="body2" fontSize={18} fontWeight={500}>
           Top performing pages

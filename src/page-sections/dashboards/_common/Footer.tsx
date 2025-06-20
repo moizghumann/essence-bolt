@@ -16,6 +16,7 @@ import FlexBox from '@/components/flexbox/FlexBox'
 const StyledCard = styled(Card)(({ theme }) => ({
   gap: 16,
   padding: 24,
+  backgroundColor: '#171717',
   display: 'flex',
   flexWrap: 'wrap',
   alignItems: 'center',

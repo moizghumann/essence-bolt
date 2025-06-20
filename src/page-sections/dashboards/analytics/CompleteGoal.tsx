@@ -57,7 +57,7 @@ export default function CompleteGoal({ chart = 'bar' }: ComponentProps) {
   })
 
   return (
-    <Card>
+    <Card sx={{ backgroundColor: '#171717' }}>
       <Box p={3} pb={0} position="relative" zIndex={2}>
         <Title
           title={data[0]?.completed_goals}
