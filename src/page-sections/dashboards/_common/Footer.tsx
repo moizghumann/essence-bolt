@@ -16,7 +16,7 @@ import FlexBox from '@/components/flexbox/FlexBox'
 const StyledCard = styled(Card)(({ theme }) => ({
   gap: 16,
   padding: 24,
-  backgroundColor: '#171717',
+  backgroundColor: '#191919',
   display: 'flex',
   flexWrap: 'wrap',
   alignItems: 'center',
@@ -51,7 +51,9 @@ export default function Footer() {
           Clean UI & well documented
         </Typography>
 
-        <Button href="https://ui8.net/ui-lib/products/essence---ui-kit">Buy Now</Button>
+        <Button href="https://ui8.net/ui-lib/products/essence---ui-kit">
+          Buy Now
+        </Button>
       </div>
 
       <div>

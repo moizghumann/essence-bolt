@@ -76,7 +76,7 @@ export default function SalesByCountry({ chartHorizontal }: Props) {
   })
 
   return (
-    <Card sx={{ height: '100%', p: 3, backgroundColor: '#171717' }}>
+    <Card sx={{ height: '100%', p: 3, backgroundColor: '#191919' }}>
       <div>
         <Typography variant="body2" fontSize={18} fontWeight={500}>
           Sales by Country

@@ -84,7 +84,7 @@ const SessionBrowser = React.memo(function SessionBrowser() {
   const series = useMemo(() => BROWSERS.map((b) => b.percentage), [BROWSERS])
 
   return (
-    <Card className="h-full" sx={{ backgroundColor: '#171717' }}>
+    <Card className="h-full" sx={{ backgroundColor: '#191919' }}>
       <Header>{t('Session by browser')}</Header>
 
       <Suspense fallback={<Box height={180} />}>

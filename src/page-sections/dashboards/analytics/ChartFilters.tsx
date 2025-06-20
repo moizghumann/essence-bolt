@@ -123,7 +123,7 @@ export default function ChartFilters({ type = 'area' }: ComponentProps) {
   })
 
   return (
-    <Card sx={{ backgroundColor: '#171717' }}>
+    <Card sx={{ backgroundColor: '#191919' }}>
       <TopContentWrapper>
         {/* LIST SKELETON */}
         {isLoading || !chartData.length

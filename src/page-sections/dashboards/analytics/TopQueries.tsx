@@ -18,7 +18,7 @@ import { useTopQueries } from '@/hooks/useTopQueries'
 export default function TopQueries() {
   const { data: TOP_QUERIES = [] } = useTopQueries()
   return (
-    <Card sx={{ padding: 3, pb: 1, backgroundColor: '#171717' }}>
+    <Card sx={{ padding: 3, pb: 1, backgroundColor: '#191919' }}>
       <Box mb={3}>
         <Typography variant="body2" fontSize={18} fontWeight={500}>
           Top Queries
