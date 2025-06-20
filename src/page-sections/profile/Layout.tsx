@@ -22,6 +22,7 @@ import Bratislava from '@/icons/Bratislava'
 import MapMarkerIcon from '@/icons/MapMarkerIcon'
 // CUSTOM UTILS METHOD
 import { currency } from '@/utils/currency'
+import { useUser } from '@clerk/clerk-react'
 
 const CLOUD_NAME = 'dtro0xcp7'
 const UPLOAD_PRESET = 'user-profile-pics'
@@ -69,9 +70,31 @@ interface LayoutProps {
 // =======================================================================
 
 export default function Layout({ children, handleTabList }: LayoutProps) {
-  const user = { name: 'User', createdAt: new Date() }
+  const { user } = useUser()
 
-  const handleImgUpload = () => {}
+  const handleImgUpload = async (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    const file = event.target.files?.[0]
+    if (file) {
+      const base64 = await convertFileToBase64(file)
+      console.log('Base64 image:', base64)
+
+      await user?.setProfileImage({
+        file: base64, // THIS is what Clerk expects
+      })
+    }
+  }
+
+  // Helper function to convert File -> Base64
+  async function convertFileToBase64(file: File): Promise<string> {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader()
+      reader.readAsDataURL(file) // Notice: 'readAsDataURL'
+      reader.onload = () => resolve(reader.result as string)
+      reader.onerror = (error) => reject(error)
+    })
+  }
 
   return (
     <Fragment>
@@ -111,7 +134,7 @@ export default function Layout({ children, handleTabList }: LayoutProps) {
                 alt="user"
                 borderSize={2}
                 percentage={60}
-                src="/static/user/user-11.png"
+                src={user?.imageUrl ?? '/static/user/user-11.png'}
                 sx={{ width: 100, height: 100 }}
               />
             </AvatarBadge>
@@ -124,17 +147,20 @@ export default function Layout({ children, handleTabList }: LayoutProps) {
               fontWeight={600}
               textAlign="center"
             >
-              {user.name}
+              {user?.fullName}
             </Typography>
 
             <BoxList sx={{ pt: 1, maxWidth: 340 }}>
               <ListItem title="Developer" Icon={Bratislava} />
               <ListItem title="New York" Icon={MapMarkerIcon} />
               <ListItem
-                title={`Joined ${user.createdAt.toLocaleDateString('en-US', {
-                  month: 'short',
-                  day: 'numeric',
-                })}`}
+                title={`Joined ${new Date(user!.createdAt!).toLocaleDateString(
+                  'en-US',
+                  {
+                    month: 'short',
+                    day: 'numeric',
+                  }
+                )}`}
                 Icon={DateRange}
               />
             </BoxList>

@@ -1,6 +1,8 @@
-import { useCallback } from 'react'
+import { useCallback, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useLocation, useNavigate } from 'react-router'
+// CUSTOM DEFINED HOOK
+import { useTheAuth } from '@/hooks/useTheAuth'
 // LAYOUT BASED HOOK
 import useLayout from '@/layouts/layout-1/context/useLayout'
 // CUSTOM COMPONENTS
@@ -24,6 +26,7 @@ type Props = { sidebarCompact: boolean }
 // ===========================================================================
 
 export default function MultiLevelMenu({ sidebarCompact }: Props) {
+  const { user } = useTheAuth()
   const { t } = useTranslation()
   const navigate = useNavigate()
   const { pathname } = useLocation()
@@ -117,5 +120,10 @@ export default function MultiLevelMenu({ sidebarCompact }: Props) {
     })
   }
 
-  return <>{renderLevels(navigations)}</>
+  // USER ROLE BASED ON FILTER NAVIGATION
+  const filterNavigation = useMemo(() => {
+    return navigations.filter((nav) => !nav.access || nav.access === user?.role)
+  }, [user?.role])
+
+  return <>{renderLevels(filterNavigation)}</>
 }
