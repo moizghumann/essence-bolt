@@ -5,7 +5,6 @@ import { ThemeProvider } from '@mui/material/styles'
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFnsV3'
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider'
 // AUTH CONTEXT FILE
-import { AuthProvider } from '@/contexts/firebaseContext'
 // RIGHT-TO-LEFT SUPPORT COMPONENT
 import RTL from '@/components/rtl'
 // ROUTES METHOD

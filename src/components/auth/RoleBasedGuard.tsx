@@ -3,7 +3,7 @@ import { Outlet } from 'react-router'
 // CUSTOM DEFINED HOOK
 import { useTheAuth } from '@/hooks/useTheAuth'
 // CUSTOM COMPONENTS
-import ErrorView from '@/page-sections/permission/ErrorView'
+import ErrorPageView from '@/page-sections/error/PageView'
 
 // ==============================================================
 interface Props extends PropsWithChildren {
@@ -26,5 +26,5 @@ export default function RoleBasedGuard({ children, roles }: Props) {
     return <>{children || <Outlet />}</>
   }
 
-  return <ErrorView />
+  return <ErrorPageView />
 }

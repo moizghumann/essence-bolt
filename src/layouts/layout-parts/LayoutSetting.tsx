@@ -123,5 +123,4 @@ export default function LayoutSetting() {
 
 const demoLayouts = [
   { name: 'layout1', title: 'Layout V1', imgUrl: '/static/layouts/layout-1.jpg' },
-  { name: 'layout2', title: 'Layout V2', imgUrl: '/static/layouts/layout-2.jpg' },
 ]
