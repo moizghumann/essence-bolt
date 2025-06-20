@@ -27,9 +27,7 @@ import KeyboardTab from '@mui/icons-material/KeyboardTab'
 import Masonry from '@mui/lab/Masonry'
 // CUSTOM PAGE SECTION COMPONENTS
 import TotalUsers from '@/page-sections/dashboards/analytics/TotalUsers'
-import ReturnRate from '@/page-sections/dashboards/ecommerce/ReturnRate'
 import CompleteGoal from '@/page-sections/dashboards/analytics/CompleteGoal'
-import DailyVisitors from '@/page-sections/dashboards/ecommerce/DailyVisitors'
 import SessionBrowser from '@/page-sections/dashboards/analytics/SessionBrowser'
 
 export default function Section3() {
@@ -191,15 +189,11 @@ export default function Section3() {
 
               <CompleteGoal chart="area" />
 
-              <DailyVisitors />
 
               <div>
                 <TotalUsers />
               </div>
 
-              <div>
-                <ReturnRate />
-              </div>
             </Masonry>
           </Stack>
         </Grid>
