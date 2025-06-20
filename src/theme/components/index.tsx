@@ -1,6 +1,4 @@
 import type {} from '@mui/lab/themeAugmentation'
-import type {} from '@mui/x-tree-view/themeAugmentation'
-import type {} from '@mui/x-data-grid/themeAugmentation'
 import type {} from '@mui/x-date-pickers/themeAugmentation'
 import { Theme, Components } from '@mui/material/styles'
 
@@ -12,13 +10,11 @@ import { Badge } from './badge'
 import { Rating } from './rating'
 import { Switch } from './switch'
 import { Backdrop } from './backdrop'
-import { DataGrid } from './dataGrid'
 import { Breadcrumbs } from './breadcrumbs'
 import { Autocomplete } from './autocomplete'
 import { AppBar } from './appbar'
 import { Paper } from './paper'
 import { Slider } from './slider'
-import { TreeItem } from './tree'
 import { Tooltip } from './tooltip'
 import { SnackbarContent } from './snackbar'
 import { StepConnector, StepIcon } from './step'
@@ -123,7 +119,6 @@ const componentsOverride = (theme: Theme): Components => {
     MuiBadge: Badge(theme),
     MuiSwitch: Switch(theme),
     MuiRating: Rating(theme),
-    MuiDataGrid: DataGrid(theme),
     MuiBackdrop: Backdrop(theme),
     MuiBreadcrumbs: Breadcrumbs(theme),
     MuiAutocomplete: Autocomplete(theme),
@@ -178,7 +173,6 @@ const componentsOverride = (theme: Theme): Components => {
 
     MuiPaper: Paper(),
     MuiAppBar: AppBar(),
-    MuiTreeItem: TreeItem(),
     MuiSlider: Slider(theme),
     MuiTooltip: Tooltip(theme),
     MuiTimelineDot: TimelineDot(theme),
