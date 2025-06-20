@@ -180,6 +180,6 @@ export const darkPalette = {
   action: actionDark,
   background: {
     paper: grey[800],
-    default: grey[900],
+    default: '#121212',
   },
 }

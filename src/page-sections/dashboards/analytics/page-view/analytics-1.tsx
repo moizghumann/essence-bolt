@@ -1,5 +1,7 @@
 import Grid from '@mui/material/Grid2'
 import Stack from '@mui/material/Stack'
+import '@fontsource/roboto-mono/400.css'
+import '@fontsource/roboto-mono/700.css'
 // CUSTOM PAGE SECTION COMPONENTS
 import Footer from '../../_common/Footer'
 import TopQueries from '../TopQueries'
@@ -114,7 +116,7 @@ export default function Analytics1PageView() {
   }, [user?.id, user?.fullName, supabase])
 
   return (
-    <div className="pt-2 pb-4">
+    <div className="pt-2 pb-4" style={{ fontFamily: '"Roboto Mono", monospace' }}>
       <Grid container spacing={3}>
         {/* DIFFERENT DATA SHOW WITH CHART */}
         <Grid size={{ md: 8, xs: 12 }}>
